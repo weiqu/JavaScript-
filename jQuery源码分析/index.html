@@ -7,9 +7,28 @@
     <title>jquery架构测试</title>
 </head>
 <body>
-    <script src="./jquery.3.2.1.js"></script>
+    <script src="./jquery.3.2.1.js"></script> 
     <script>
+        
         console.log($());
+        
+        
+        //jquery内部三种方式调用的是同一个函数
+        //1.任意对象扩展，如果第一个对象没有该值，就扩展，如果有就是重新赋值
+        var obj = $.extend({},{name :'max'});
+
+        //2.给jquery扩展方法
+        $.extend({
+            work:function(){
+
+            }
+        })
+
+        //3.给jquery实例扩展方法 $.fn 为jquery的原型对象
+        $.fn.extend({
+            sex:'男'
+        });
+        $().sex; //男
     </script>
 </body>
 </html>
